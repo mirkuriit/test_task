@@ -1,0 +1,30 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "mirkuriit"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic (>=2.11.7,<3.0.0)",
+    "fastapi (>=0.116.1,<0.117.0)",
+    "python-dotenv (>=1.1.1,<2.0.0)",
+    "sqlalchemy (>=2.0.43,<3.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)",
+    "psycopg (>=3.2.9,<4.0.0)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "authx (>=1.4.3,<2.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.scripts]
+init-db = "app.db.initial:create_db"
+drop-db = "app.db.initial:drop_db"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+
+  fastapi:
+    image: test_backend:latest
+    container_name: test_task_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+volumes:
+  pg_data:

@@ -3,6 +3,7 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
@@ -14,13 +15,13 @@ services:
     tty: true
     stdin_open: true
 
-  fastapi:
-    image: test_backend:latest
-    container_name: test_task_backend
-    ports:
-      - "8000:8000"
-    env_file:
-      - .env
+#  fastapi:
+#    image: test_backend:latest
+#    container_name: test_task_backend
+#    ports:
+#      - "8000:8000"
+#    env_file:
+#      - .env
 
 volumes:
   pg_data:

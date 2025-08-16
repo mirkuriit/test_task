@@ -21,7 +21,7 @@ git clone git@github.com:mirkuriit/test_task.git
 cd test_task
 
 touch .env  ### пример .env выше
-### Поднимаем только постгрес, соединить с бекендом не успел
+### Поднимаем только постгрес, соединить с бекендом не успел (косяки в нейминге, но 4 часа уже прошло()
 docker compose up
 
 poetry env use python3.13
